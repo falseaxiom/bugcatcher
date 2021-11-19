@@ -1,0 +1,15 @@
+public class Level1B {
+    public static void main(String[] args) {
+        int n = 5;
+        int sum = 0;
+        int prod = 0;
+
+        for (int i = 1; i < n; i++) {
+            sum += i;
+            prod *= i;
+        }
+
+        System.out.println("sum of range [1,5): " + sum);
+        System.out.println("product of range [1,5): " + prod);
+    }
+}

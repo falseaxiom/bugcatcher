@@ -1,0 +1,47 @@
+/***** BIG INFO BOX STUFF ****/
+.bigBox {
+    width: 90vw;
+    height: 70vh;
+    border-radius: 10px;
+    background: var(--darkbg);
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+}
+.leftBox {
+    width: calc(50% - 100px);
+    height: 80%;
+    padding: 50px;
+    text-align: left;
+}
+.rightBox {
+    width: calc(50% - 140px);
+    height: calc(80% - 40px);
+    padding: 50px;
+    margin: 20px;
+    align-items: center;
+    background: blue;
+}
+.boxTitle {
+    font-family: var(--robmono);
+    font-size: var(--biggs);
+}
+.boxDesc {
+    font-family: var(--robmono);
+    font-size: var(--title);
+}
+.goButton {
+    font-family: var(--robmono);
+    font-size: var(--title);
+    color: inherit;
+    background: var(--orange);
+    border: none;
+    border-radius: 8px;
+    width: 220px;
+    padding: 15px;
+    align-self: center;
+}
+.goButton:hover {
+    background: var(--yellow);
+    cursor: pointer;
+}

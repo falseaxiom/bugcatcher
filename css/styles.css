@@ -1,0 +1,184 @@
+/***** BASE STATS *****/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--rob);
+    background: var(--defaultbg);
+    color: var(--white);
+}
+b {
+    font-weight: 700;
+}
+a {
+    color: var(--yellow);
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/***** VARIABLES *****/
+:root {
+    /* bg colors */
+    --defaultbg: #003A00;
+    --darkbg: #002600;
+    --codebg: #021229;
+
+    /* font colors */
+    --orange: #FF7000;
+    --yellow: #F1C232;
+    --green: #91C14A;
+    --white: white;
+
+    /* button colors */
+
+    /* greyscale */
+    --grey: #777777;
+    --dgrey: black;
+    --fgrey: #A1A1A1;
+
+    /* typesets */
+    --rob: 'Roboto', sans-serif;
+    --robmono: 'Roboto Mono', monospace;
+
+    /* font sizes */
+    --body: 1.25rem;
+    --subtitle: 1.5rem;
+    --title: 2rem;
+    --biggs: 3rem;
+    --huge: 5rem;
+}
+
+/***** FLEX SETTINGS *****/
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+.flexCol {
+    display: flex;
+    flex-direction: column;
+}
+
+/***** HEADER *****/
+.navbar {
+    height: 60px;
+    padding-top: 20px;
+    /* background: var(--darkbg); */
+    justify-content: space-between;
+    border-bottom: 4px solid var(--defaultbg);
+    font-family: var(--robmono);
+}
+.menu {
+    width: auto;
+    margin-right: 20px;
+    font-size: var(--subtitle);
+}
+.siteTitle {
+    margin-top: -8px;
+    width: auto;
+    height: 50px;
+    margin-left: 20px;
+    font-size: var(--title);
+}
+.logoContainer {
+    top: -15px;
+    margin-right: 5px;
+    width: 80px;
+    height: 80px;
+    background: none;
+    object-fit: fill;
+    position: relative;
+
+}
+.logoContainer:hover {
+    cursor: pointer;
+}
+img.logo {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.menuButton {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+}
+.menuButton:hover {
+    color: var(--yellow);
+    cursor: pointer;
+}
+
+/***** FOOTER *****/
+.footer{
+    width: calc(100vw - 100px);
+    padding: 50px;
+    text-align: center;
+    font-family: var(--robmono);
+}
+
+/***** COMMON ELEMENTS *****/
+.container {
+    width: 100vw;
+    height: auto;
+    text-align: center; 
+    align-items: center;
+}
+.blankspace {
+    flex: 1;
+}
+.title {
+    text-align: center;
+    font-size: var(--title);
+    font-family: var(--robmono);
+}
+
+/***** IMAGE SETTINGS *****/
+.imgOverlay {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+}
+.imgOverlay p {
+    position: absolute;
+    width: 100%;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--subtitle);
+    color: white;
+}
+.imgOverlay:hover {
+    background-color: var(--blue);
+    opacity: 1;
+    transition: opacity .5s;
+    z-index: 0;
+}
+.carousel {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center; 
+    align-items: center;
+}
+.bigImgContainer {
+    max-width: 80vw;
+    max-height: 80vh;
+}
+
+/***** MOBILE RESPONSIVE *****/
+@media screen and (max-width: 999px) {
+    /* bigger font */
+    /* body {
+        font-size: 2rem;
+    }
+    :root {
+        --subtitle: 2.5rem;
+        --title: 3rem;
+    } */
+}

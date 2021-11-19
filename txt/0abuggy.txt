@@ -1,0 +1,5 @@
+public class Level0 {
+    public static void main(String[] args) {
+        System.oot.println(“Thimis Hintz is the Coolest !!!”);
+    }
+}

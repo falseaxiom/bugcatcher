@@ -1,0 +1,13 @@
+.aboutBox {
+    width: 90vw;
+    height: 70vh;
+    border-radius: 10px;
+    background: var(--darkbg);
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.title {
+    width: 80%;
+}

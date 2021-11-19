@@ -1,0 +1,48 @@
+/*** MAP STUFF ***/
+.map {
+    width: 90vw;
+    height: 70vh;
+    border-radius: 10px;
+    background: var(--darkbg);
+    margin-top: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: var(--subtitle);
+    font-family: var(--robmono);
+    color: white;
+}
+.level {
+    width: 30%;
+    height: 50%;
+    background: var(--orange);
+    text-align: center;
+    position: relative;
+}
+.level:hover {
+    background: var(--yellow);
+    cursor: pointer;
+}
+.level p {
+    position: absolute;
+    width: 100%;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.levelGrey {
+    width: 30%;
+    height: 50%;
+    background: var(--grey);
+    text-align: center;
+    position: relative;
+}
+.levelGrey p {
+    position: absolute;
+    width: 100%;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
