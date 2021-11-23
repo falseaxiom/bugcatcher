@@ -4,7 +4,7 @@ body {
     padding: 0;
     font-family: var(--robmono);
     background: var(--defaultbg);
-    color: var(--white);
+    color: white;
 }
 b {
     font-weight: 700;
@@ -31,13 +31,12 @@ button {
     --orange: #FF7000;
     --yellow: #F1C232;
     --green: #91C14A;
-    --white: white;
+    --blue: #006aff;
 
     /* button colors */
 
     /* greyscale */
     --grey: #777777;
-    --dgrey: black;
     --fgrey: #A1A1A1;
 
     /* typesets */

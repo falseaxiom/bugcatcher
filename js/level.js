@@ -10,6 +10,12 @@ console.log("enviro", enviro);
 let lvl = localStorage.getItem("lvl");
 console.log("lvl", lvl);
 
+/* time how long player is on this level */
+TimeMe.initialize({
+    currentPageName: "my-page", // current page
+    idleTimeoutInSeconds: 1000 // seconds
+});
+
 /* change title, display tutorial if necessary, autoselect "ide" (so user knows you can type in it) */
 window.onload = (e) => {
     let title = document.getElementById("title");
@@ -113,7 +119,8 @@ function run() {
 
 /* calculate score */
 function calcScore() {
-    return 1000;
+    let timeSpent = TimeMe.getTimeOnCurrentPageInSeconds();
+    return 1000 - Math.max(0, timeSpent);
 }
 
 /* move to next level! */
@@ -121,7 +128,7 @@ function next() {
     let next = document.getElementById("next");
     if (next.classList.contains("green")) {
         if (enviro == 'c' || level == "0") {
-            score = calcScore();
+            score = parseInt(calcScore());
             location.href="./score.html?level="+level+"&score="+score;
         }
         else {
