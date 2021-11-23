@@ -3,6 +3,7 @@ const qstr = window.location.search;
 const params = new URLSearchParams(qstr);
 let level = params.get("level");
 let enviro = params.get("enviro");
+let s = parseFloat(params.get("s"));
 console.log("level", level);
 console.log("enviro", enviro);
 
@@ -90,7 +91,11 @@ $.ajax({
 });
 
 /* run program */
+numRuns = 0;
 function run() {
+    // update numRuns
+    numRuns++;
+
     // get text in ide
     let text = document.getElementById("texty");
     let val = text.value.replace(/\s+/g, ' ').trim();
@@ -117,23 +122,24 @@ function run() {
     }
 }
 
-/* calculate score */
+/* calculate running score (function of time & number of runs) */
 function calcScore() {
     let timeSpent = TimeMe.getTimeOnCurrentPageInSeconds();
-    return 1000 - Math.max(0, timeSpent);
+    s += timeSpent + (10 * numRuns);
 }
 
 /* move to next level! */
 function next() {
+    calcScore();
     let next = document.getElementById("next");
     if (next.classList.contains("green")) {
         if (enviro == 'c' || level == "0") {
-            score = parseInt(calcScore());
+            let score = 1000 - Math.max(0, parseInt(s))
             location.href="./score.html?level="+level+"&score="+score;
         }
         else {
             nextenv = String.fromCharCode(enviro.charCodeAt(0)+1);
-            location.href = "./level.html?level="+level+"&enviro="+nextenv;
+            location.href = "./level.html?level="+level+"&enviro="+nextenv+"&s="+s;
         }
     }
 }

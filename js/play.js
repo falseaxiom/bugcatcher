@@ -23,6 +23,6 @@ window.onload = (e) =>{
 function gotoLevel(n) {
     console.log(n)
     if (document.getElementById(String(n)).classList.contains("level")) {
-        location.href = './level.html?level='+n+"&enviro=a";
+        location.href = './level.html?level='+n+"&enviro=a&s=0";
     }
 }
