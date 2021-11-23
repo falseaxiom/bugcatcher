@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: var(--rob);
+    font-family: var(--robmono);
     background: var(--defaultbg);
     color: var(--white);
 }
@@ -15,6 +15,9 @@ a {
 img {
     max-width: 100%;
     max-height: 100%;
+}
+button {
+    font-family: inherit;
 }
 
 /***** VARIABLES *****/
@@ -66,7 +69,6 @@ img {
     /* background: var(--darkbg); */
     justify-content: space-between;
     border-bottom: 4px solid var(--defaultbg);
-    font-family: var(--robmono);
 }
 .menu {
     width: auto;
@@ -117,7 +119,6 @@ img.logo {
     width: calc(100vw - 100px);
     padding: 50px;
     text-align: center;
-    font-family: var(--robmono);
 }
 
 /***** COMMON ELEMENTS *****/
@@ -133,7 +134,9 @@ img.logo {
 .title {
     text-align: center;
     font-size: var(--title);
-    font-family: var(--robmono);
+}
+.hidden {
+    display: none;
 }
 
 /***** IMAGE SETTINGS *****/

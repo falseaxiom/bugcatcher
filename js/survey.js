@@ -4,10 +4,13 @@ const params = new URLSearchParams(qstr);
 let question = params.get("question");
 console.log("question", question);
 
-/* change title */
+/* change title, focus on "ide" */
 window.onload = (e) => {
     let title = document.getElementById("title");
     switch (parseInt(question)) {
+        case 0:
+            title.innerHTML = "";
+            break;
         case 1:
             title.innerHTML = "Question 1";
             break;
@@ -26,6 +29,10 @@ window.onload = (e) => {
         default:
             title.innerHTML = "Error: No Level Found";
     }
+
+    // focus on "ide"
+    let text = document.getElementById("texty");
+    text.focus();
 }
 
 /* pre-fill "ide", list Hintz */

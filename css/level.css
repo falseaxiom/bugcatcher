@@ -5,7 +5,6 @@
     text-align: left;
     align-items: center;
     justify-content: space-between;
-    font-family: var(--robmono);
     color: white;
 }
 .ide {
@@ -32,7 +31,7 @@
     background: var(--codebg);
     caret-color: white;
 
-    font-family: var(--robmono);
+    font-family: inherit;
     font-size: var(--body);
     color: white;
 }
@@ -72,7 +71,6 @@
 
 /*** BUTTON SIZES ***/
 .button {
-    font-family: var(--robmono);
     font-size: var(--subtitle);
     color: inherit;
     border: none;
@@ -82,7 +80,6 @@
     align-self: center;
 }
 .widebutton {
-    font-family: var(--robmono);
     font-size: var(--subtitle);
     color: inherit;
     border: none;
@@ -121,30 +118,61 @@
     cursor: pointer;
 }
 
-/*** TUTORIAL DIVS ***/
+/*** TUTORIAL ***/
 .tutorial {
     position: absolute;
     width: 100vw;
     height: 100vh;
     background: rgba(0,0,0,0.5);
 }
-.hidden {
-    display: none;
-}
 .tutBox {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-right: -50%;
+    /* margin-right: -50%; */
     transform: translate(-50%, -50%);
-    width: 40vw;
-    height: 40vh;
-    background: blue;
+    width: 550px;
+    height: 400px;
+    background: var(--codebg);
     border-radius: 10px;
 }
-.thimis {
-    
+.tutPics {
+    width: 100%;
+    height: 70%;
+    justify-content: space-between;
 }
-.dialog {
-    
+.thimis {
+    width: 165px;
+    height: 260px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background: red;
+}
+.chalkboard {
+    width: 60%;
+    height: 70%;
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    background: var(--darkbg);
+}
+.dialogBox {
+    width: calc(100% - 22px);
+    height: calc(30% - 12px);
+    margin: 10px;
+    margin-top: 0px;
+    border: 1px solid var(--yellow);
+    border-radius: 5px;
+    background: var(--defaultbg);
+}
+#dialog {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    margin: 10px;
+}
+#dialog p {
+    margin: 0;
+}
+#dialog b {
+    color: var(--yellow);
 }

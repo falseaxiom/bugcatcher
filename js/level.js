@@ -6,7 +6,11 @@ let enviro = params.get("enviro");
 console.log("level", level);
 console.log("enviro", enviro);
 
-/* change title */
+/* grab true level from localStorage */
+let lvl = localStorage.getItem("lvl");
+console.log("lvl", lvl);
+
+/* change title, display tutorial if necessary, autoselect "ide" (so user knows you can type in it) */
 window.onload = (e) => {
     let title = document.getElementById("title");
     switch (parseInt(level)) {
@@ -22,9 +26,17 @@ window.onload = (e) => {
         default:
             title.innerHTML = "Error: No Level Found";
     }
+
+    // display tutorial if on first problem of level
+    if (enviro == 'a' && level == lvl) {
+        document.getElementById("tut").classList.remove("hidden");
+    }
+
+    // focus on "ide"
+    document.getElementById("texty").focus();
 }
 
-/* pre-fill "ide", list Hintz */
+/* pre-fill "ide" and tutorial, list Hintz */
 $(document).ready(function() {
     $.ajax({
         url : "txt/"+level+enviro+"buggy.txt",
@@ -33,8 +45,25 @@ $(document).ready(function() {
             $("#texty").text(data);
         }
     });
+
+    if (enviro == 'a') {
+        $("#dialog").load("tutorial/"+level+"dialog.html #0")
+    }
+
     $("#hint0").load("hintz/" + level + enviro + "hintz.html #0");
 });
+
+/* TUTORIAL: click thru dialog */
+let dialog = document.getElementById("dialog");
+let d = 0;
+function nextDialog() {
+    d++;
+    $("#dialog").load("tutorial/"+level+"dialog.html #"+d);
+    if (dialog.innerHTML == "") {
+        document.getElementById("tut").classList.add("hidden");
+        document.getElementById("texty").focus();
+    }
+}
 
 /* display more Hintz */
 numHintz = 0;
@@ -60,13 +89,10 @@ function run() {
     let text = document.getElementById("texty");
     let val = text.value.replace(/\s+/g, ' ').trim();
 
-    // get terminal
+    // get "terminal"
     let term = document.getElementById("terminal")
 
-    console.log(val);
-    console.log(chk);
-
-    // if answer is correct, un-grey next button
+    // if answer is correct, display correct output in terminal & un-grey next button
     if (val === chk) {
         let next = document.getElementById("next");
         next.classList.remove("grey");
