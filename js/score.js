@@ -17,5 +17,5 @@ if (lvl == parseInt(level)) {
 }
 
 function nextLevel() {
-    location.href="./level.html?level="+lvl+"&enviro=a";
+    location.href="./level.html?level="+lvl+"&enviro=a&s=0";
 }
