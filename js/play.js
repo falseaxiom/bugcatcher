@@ -22,6 +22,6 @@ window.onload = (e) =>{
 /* if level is clickable, go to it */
 function gotoLevel(n) {
     if (document.getElementById(String(n)).classList.contains("level")) {
-        location.href = './level.html?level='+n+"&enviro=a&s=0";
+        location.href = './level.html?l='+n+"&e=a&s=0";
     }
 }

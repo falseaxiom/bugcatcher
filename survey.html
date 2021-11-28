@@ -3,6 +3,7 @@
     <head>
         <title>BUGCATCHER!</title>
         <link rel="stylesheet" href="css/styles.css"/>
+        <link rel="stylesheet" href="css/level.css"/>
         <link rel="stylesheet" href="css/survey.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
@@ -11,6 +12,16 @@
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
     </head>
     <body>
+        <div class="partPicker hidden" id="pp">
+            <div class="flexCol partBox">
+                <div style="font-size: var(--subtitle)">Which part of the survey are you completing?</div>
+                <div class="flexRow buttonContainer">
+                    <button class="button" id="p1" onclick="gotoPart(1)">part 1</button>
+                    <button class="button" id="p2" onclick="gotoPart(2)">part 2</button>
+                </div>
+            </div>
+            
+        </div>
         <div id="header"></div>
         <div class="flexCol container">
             <div class="title" id="title"></div>
@@ -45,6 +56,7 @@
             $("#header").load("common/header.html"); 
             $("#footer").load("common/footer.html"); 
         });
-    </script> 
+    </script>
+    <script src="js/timeme.min.js"></script>
     <script src="js/survey.js"></script>
 </html>

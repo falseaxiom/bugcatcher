@@ -1,82 +1,74 @@
-/* SETUP: grab level and environment from url */
+/* SETUP: grab survey part and question from url */
 const qstr = window.location.search;
 const params = new URLSearchParams(qstr);
-let question = params.get("question");
-let s = parseFloat(params.get("s"));
-console.log("level", level);
-console.log("enviro", enviro);
+let part = parseInt(params.get("p"));
+let question = parseInt(params.get("q"));
+console.log("part", part)
+console.log("question", question);
 
-/* SETUP: grab true level from localStorage */
-let lvl = localStorage.getItem("lvl");
-console.log("lvl", lvl);
+/* SETUP: grab s1, s2 from localStorage */
+let s1 = parseInt(localStorage.getItem("s1"));
+let s2 = parseInt(localStorage.getItem("s2"));
+console.log("s1", s1);
+console.log("s2", s2);
 
-/* SETUP: time how long player is on this level */
+/* SETUP: time how long player is on this question */
 TimeMe.initialize({
     currentPageName: "my-page", // current page
     idleTimeoutInSeconds: 1000 // seconds
 });
 
-/* SETUP: change title, autoselect "ide" (so user knows you can type in it) */
+/* SETUP: change title, display part picker (if needed), grey out buttons as necessary */
 window.onload = (e) => {
     let title = document.getElementById("title");
     title.innerHTML = "Survey Part " + part + ": Question " + question;
 
-    // display  if on first problem of level
-    if (enviro == 'a' && level == lvl) {
-        document.getElementById("tut").classList.remove("hidden");
+    // display part picker @ beginning
+    if (part == 0) {
+        document.getElementById("pp").classList.remove("hidden");
     }
 
-    // focus on "ide"
+    // autoselect textarea
     document.getElementById("texty").focus();
+
+    // grey out buttons
+    let p1Button = document.getElementById("p1");
+    let p2Button = document.getElementById("p2");
+    if (s1 == 0) { // before part 1 complete, grey out part 2
+        p1Button.classList.add("orange");
+        p2Button.classList.add("grey");
+    }
+    else {
+        p1Button.classList.add("grey"); // part 1 done - grey out
+        if (s2 == 0) p2Button.classList.add("orange"); // part 2 not done - still orange
+        else         p2Button.classList.add("grey");   // part 2 done - grey out
+    }
 }
 
-/* SETUP: pre-fill "ide" and tutorial, list Hintz */
+/* SETUP: pre-fill "ide", program description */
 $(document).ready(function() {
+    // pre-fill ide
     $.ajax({
-        url : "txt/"+part+"-"+question+"buggy.txt",
+        url : "txt/buggy/s"+part+"-"+question+"buggy.txt",
         dataType: "text",
         success : function (data) {
             $("#texty").text(data);
         }
     });
 
-    if (enviro == 'a') {
-        $("#dialog").load("tutorial/"+level+"dialog.html #0")
-    }
-
-    $("#hint0").load("hintz/" + level + enviro + "hintz.html #0");
+    // program description
+    $("#hint0").load("hintz/s" + part + "hintz.html #" + question);
 });
 
-/* TUTORIAL: click thru dialog */
-let dialog = document.getElementById("dialog");
-let d = 0;
-function nextDialog() {
-    d++;
-    $("#dialog").load("tutorial/"+level+"dialog.html #"+d);
-    if (dialog.innerHTML == "") {
-        document.getElementById("tut").classList.add("hidden");
-        document.getElementById("texty").focus();
-    }
-}
-
-/* TUTORIAL: skip tutorial */
-function skipTut() {
-    document.getElementById("tut").classList.add("hidden");
-}
-
-/* HINTZ: display more Hintz */
-numHintz = 0;
-function newHint() {
-    if (numHintz < 3) {
-        numHintz++;
-        $("#hint"+numHintz).load("hintz/" + level + enviro + "hintz.html #" + numHintz);
-    }
+/* PART PICKER: pick part */
+function gotoPart(n) {
+    if (document.getElementById("p"+n).classList.contains("orange")) location.href = "./survey.html?p="+n+"&q=1";
 }
 
 /* RUN: get correct answer for checking later */
 let chk;
 $.ajax({
-    url: "txt/"+level+enviro+"correct.txt",
+    url : "txt/correct/s"+part+"-"+question+"correct.txt",
     success: function(data){
       chk = data.replace(/\s+/g, ' ').trim();
     }
@@ -101,37 +93,35 @@ function run() {
         next.classList.remove("grey");
         next.classList.add("green");
         $.ajax({
-            url : "txt/"+level+enviro+"output.txt",
+            url : "txt/output/s"+part+"-"+question+"output.txt",
             dataType: "text",
             success : function (data) {
                 term.innerHTML = data;
             }
         });
-        
     }
     else {
         term.innerHTML = "> Error: bugs present in code";
     }
 }
 
-/* RUN: calculate running score (function of time & number of runs) */
-function calcScore() {
+/* RUN: update data */
+function update() {
     let timeSpent = TimeMe.getTimeOnCurrentPageInSeconds();
     s += timeSpent + (10 * numRuns);
 }
 
-/* NEXT: move to next enviro/level! */
+/* NEXT: move to next question */
 function next() {
-    calcScore();
     let next = document.getElementById("next");
     if (next.classList.contains("green")) {
-        if (enviro == 'c' || level == "0") {
+        if (question == 8) {
             let score = 1000 - Math.max(0, parseInt(s))
-            location.href="./score.html?level="+level+"&score="+score;
+            location.href="./score.html?p="+part+"&s="+score;
         }
         else {
-            nextenv = String.fromCharCode(enviro.charCodeAt(0)+1);
-            location.href = "./level.html?level="+level+"&enviro="+nextenv+"&s="+s;
+            question++;
+            location.href = "./survey.html?p="+part+"&q="+question;
         }
     }
 }

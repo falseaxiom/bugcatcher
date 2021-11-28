@@ -1,8 +1,8 @@
 /* SETUP: grab level and environment from url */
 const qstr = window.location.search;
 const params = new URLSearchParams(qstr);
-let level = params.get("level");
-let enviro = params.get("enviro");
+let level = params.get("l");
+let enviro = params.get("e");
 let s = parseFloat(params.get("s"));
 console.log("level", level);
 console.log("enviro", enviro);
@@ -23,7 +23,7 @@ TimeMe.initialize({
     idleTimeoutInSeconds: 1000 // seconds
 });
 
-/* SETUP: change title, display tutorial if necessary, autoselect "ide" (so user knows you can type in it) */
+/* SETUP: change title, display tutorial if necessary */
 window.onload = (e) => {
     let title = document.getElementById("title");
     switch (parseInt(level)) {
@@ -40,19 +40,19 @@ window.onload = (e) => {
             title.innerHTML = "Error: No Level Found";
     }
 
+    // autoselect textarea
+    document.getElementById("texty").focus();
+
     // display tutorial if on first problem of level
     if (enviro == 'a' && level == lvl) {
         document.getElementById("tut").classList.remove("hidden");
     }
-
-    // focus on "ide"
-    document.getElementById("texty").focus();
 }
 
 /* SETUP: pre-fill "ide" and tutorial, list Hintz */
 $(document).ready(function() {
     $.ajax({
-        url : "txt/"+level+enviro+"buggy.txt",
+        url : "txt/buggy/"+level+enviro+"buggy.txt",
         dataType: "text",
         success : function (data) {
             $("#texty").text(data);
@@ -95,7 +95,7 @@ function newHint() {
 /* RUN: get correct answer for checking later */
 let chk;
 $.ajax({
-    url: "txt/"+level+enviro+"correct.txt",
+    url: "txt/correct/"+level+enviro+"correct.txt",
     success: function(data){
       chk = data.replace(/\s+/g, ' ').trim();
     }
@@ -121,7 +121,7 @@ function run() {
         next.classList.remove("grey");
         next.classList.add("green");
         $.ajax({
-            url : "txt/"+level+enviro+"output.txt",
+            url : "txt/output/"+level+enviro+"output.txt",
             dataType: "text",
             success : function (data) {
                 term.innerHTML = data;
@@ -145,13 +145,13 @@ function next() {
     calcScore();
     let next = document.getElementById("next");
     if (next.classList.contains("green")) {
-        if (enviro == 'c' || level == "0") {
+        if (enviro == 'e' || level == "0") {
             let score = 1000 - Math.min(900, parseInt(s)); // min score of 100
             location.href="./score.html?level="+level+"&score="+score;
         }
         else {
             nextenv = String.fromCharCode(enviro.charCodeAt(0)+1);
-            location.href = "./level.html?level="+level+"&enviro="+nextenv+"&s="+s;
+            location.href = "./level.html?l="+level+"&e="+nextenv+"&s="+s;
         }
     }
 }
