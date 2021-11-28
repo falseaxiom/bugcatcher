@@ -36,6 +36,12 @@ window.onload = (e) => {
         case 2:
             title.innerHTML = "Level 2: Variable Scope";
             break;
+        case 3:
+            title.innerHTML = "Level 2: Indexing Errors";
+            break;
+        case 4:
+            title.innerHTML = "Level 2: Logic Errors";
+            break;
         default:
             title.innerHTML = "Error: No Level Found";
     }
