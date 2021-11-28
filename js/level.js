@@ -11,6 +11,12 @@ console.log("enviro", enviro);
 let lvl = localStorage.getItem("lvl");
 console.log("lvl", lvl);
 
+/* SETUP: set level high score if never played before */
+let hiscore = parseInt(localStorage.getItem("l"+level+"hs"));
+if (isNaN(hiscore)) {
+    localStorage.setItem("l"+level+"hs", 0);
+}
+
 /* SETUP: time how long player is on this level */
 TimeMe.initialize({
     currentPageName: "my-page", // current page
@@ -100,6 +106,7 @@ numRuns = 0;
 function run() {
     // update numRuns
     numRuns++;
+    console.log("numRuns", numRuns);
 
     // get text in ide
     let text = document.getElementById("texty");
@@ -133,13 +140,13 @@ function calcScore() {
     s += timeSpent + (10 * numRuns);
 }
 
-/* NEXT: move to next enviro/level! */
+/* NEXT: move to next enviro! */
 function next() {
     calcScore();
     let next = document.getElementById("next");
     if (next.classList.contains("green")) {
         if (enviro == 'c' || level == "0") {
-            let score = 1000 - Math.max(0, parseInt(s))
+            let score = 1000 - Math.min(900, parseInt(s)); // min score of 100
             location.href="./score.html?level="+level+"&score="+score;
         }
         else {

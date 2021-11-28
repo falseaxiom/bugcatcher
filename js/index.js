@@ -2,10 +2,10 @@
 window.onload = (e) =>{
     let lvl = parseInt(localStorage.getItem("lvl"));
     if (!isNaN(lvl)) {
-        console.log('got a level :)', lvl);
+        console.log('lvl', lvl);
     }
     else {
-        console.log('got no level :(');
+        console.log('new player');
         localStorage.setItem("lvl","0");
     }
 }
