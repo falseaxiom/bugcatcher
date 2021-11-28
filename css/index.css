@@ -20,7 +20,17 @@
     padding: 50px;
     margin: 20px;
     align-items: center;
-    background: blue;
+    position: relative;
+}
+.rightBox img {
+    top: calc(50% - 210px);
+    left: calc(50% - 210px);
+    max-width: 320px;
+    max-height: 320px;
+    background: white;
+    border-radius: 10px;
+    padding: 50px;
+    position: absolute;
 }
 .boxTitle {
     font-family: var(--robmono);
@@ -37,7 +47,7 @@
     background: var(--orange);
     border: none;
     border-radius: 8px;
-    width: 220px;
+    width: 45%;
     padding: 15px;
     align-self: center;
 }
