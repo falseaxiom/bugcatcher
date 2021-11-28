@@ -1,4 +1,4 @@
-/* grab level and environment from url */
+/* SETUP: grab level and environment from url */
 const qstr = window.location.search;
 const params = new URLSearchParams(qstr);
 let level = params.get("level");
@@ -7,17 +7,17 @@ let s = parseFloat(params.get("s"));
 console.log("level", level);
 console.log("enviro", enviro);
 
-/* grab true level from localStorage */
+/* SETUP: grab true level from localStorage */
 let lvl = localStorage.getItem("lvl");
 console.log("lvl", lvl);
 
-/* time how long player is on this level */
+/* SETUP: time how long player is on this level */
 TimeMe.initialize({
     currentPageName: "my-page", // current page
     idleTimeoutInSeconds: 1000 // seconds
 });
 
-/* change title, display tutorial if necessary, autoselect "ide" (so user knows you can type in it) */
+/* SETUP: change title, display tutorial if necessary, autoselect "ide" (so user knows you can type in it) */
 window.onload = (e) => {
     let title = document.getElementById("title");
     switch (parseInt(level)) {
@@ -43,7 +43,7 @@ window.onload = (e) => {
     document.getElementById("texty").focus();
 }
 
-/* pre-fill "ide" and tutorial, list Hintz */
+/* SETUP: pre-fill "ide" and tutorial, list Hintz */
 $(document).ready(function() {
     $.ajax({
         url : "txt/"+level+enviro+"buggy.txt",
@@ -72,7 +72,12 @@ function nextDialog() {
     }
 }
 
-/* display more Hintz */
+/* TUTORIAL: skip tutorial */
+function skipTut() {
+    document.getElementById("tut").classList.add("hidden");
+}
+
+/* HINTZ: display more Hintz */
 numHintz = 0;
 function newHint() {
     if (numHintz < 3) {
@@ -81,7 +86,7 @@ function newHint() {
     }
 }
 
-/* get correct answer for checking later */
+/* RUN: get correct answer for checking later */
 let chk;
 $.ajax({
     url: "txt/"+level+enviro+"correct.txt",
@@ -90,7 +95,7 @@ $.ajax({
     }
 });
 
-/* run program */
+/* RUN: run program */
 numRuns = 0;
 function run() {
     // update numRuns
@@ -122,13 +127,13 @@ function run() {
     }
 }
 
-/* calculate running score (function of time & number of runs) */
+/* RUN: calculate running score (function of time & number of runs) */
 function calcScore() {
     let timeSpent = TimeMe.getTimeOnCurrentPageInSeconds();
     s += timeSpent + (10 * numRuns);
 }
 
-/* move to next level! */
+/* NEXT: move to next enviro/level! */
 function next() {
     calcScore();
     let next = document.getElementById("next");

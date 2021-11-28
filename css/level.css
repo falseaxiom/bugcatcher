@@ -34,6 +34,7 @@
     font-family: inherit;
     font-size: var(--body);
     color: white;
+    border: 1px solid var(--blue);
 }
 #terminal {
     width: calc(100% - 20px);
@@ -41,6 +42,7 @@
     padding: 10px;
     border-radius: 10px;
     background: black;
+    border: 1px solid var(--grey);
 }
 .junkHolder {
     width: 350px;
@@ -111,7 +113,7 @@
 .outline {
     border: 1px dotted var(--green);
     color: var(--green);
-    background: var(--darkbg);
+    background: none;
 }
 .outline:hover {
     background: var(--defaultbg);
@@ -123,7 +125,7 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.7);
 }
 .tutBox {
     position: absolute;
@@ -133,7 +135,7 @@
     transform: translate(-50%, -50%);
     width: 550px;
     height: 400px;
-    background: var(--codebg);
+    background: var(--tutbg);
     border-radius: 10px;
 }
 .tutPics {
@@ -141,20 +143,25 @@
     height: 70%;
     justify-content: space-between;
 }
-.thimis {
-    width: 165px;
+.thimisContainer {
+    width: 260px;
     height: 260px;
     margin-top: 20px;
-    margin-left: 20px;
-    background: red;
+    object-fit: fill;
+    position: relative;
+}
+.thimis img {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .chalkboard {
-    width: 60%;
+    width: 50%;
     height: 70%;
     margin-top: 20px;
     margin-right: 20px;
     border-radius: 5px;
-    background: var(--darkbg);
+    background: var(--defaultbg);
     object-fit: fill;
     position: relative;
 }
@@ -170,9 +177,9 @@
     height: calc(30% - 12px);
     margin: 10px;
     margin-top: 0px;
-    border: 1px solid var(--yellow);
+    border: 1px solid var(--green);
     border-radius: 5px;
-    background: var(--defaultbg);
+    background: var(--darkbg);
 }
 #dialog {
     width: calc(100% - 20px);
@@ -184,4 +191,13 @@
 }
 #dialog b {
     color: var(--yellow);
+}
+#skip {
+    position: absolute;
+    top: calc(50% + 250px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    font-size: var(--body);
+    padding: 10px 25px;
 }

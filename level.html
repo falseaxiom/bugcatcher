@@ -14,13 +14,14 @@
         <div class="tutorial hidden" id="tut" onclick="nextDialog()">
             <div class="flexCol tutBox">
                 <div class="flexRow tutPics">
-                    <div class="thimis">[thimis hintz sprite]</div>
+                    <div class="thimisContainer"><img class="thimis" src="imgs/thimis.png" alt="butterfly icon" width="100%" height="100%"></div>
                     <div class="chalkboard"><img class="logo" src="imgs/logo.png" alt="butterfly icon" width="100%" height="100%"></div>
                 </div>
                 <div class="dialogBox">
                     <div id="dialog"></div>
                 </div>
             </div>
+            <button class="button orange" id="skip" onclick="skipTut()">skip tutorial</button>
         </div>
         <div id="header"></div>
         <div class="flexCol container">
@@ -37,7 +38,7 @@
                         <p id="hint2"></p>
                         <p id="hint3"></p>
                     </div>
-                    <button class="widebutton outline" onclick="newHint()">ask for hintz</button>
+                    <button class="widebutton outline" onclick="newHint()">ask for Hintz</button>
                     <div class="flexRow buttonContainer">
                         <button type="submit" class="button orange" id="run" onclick="run()">run</button>
                         <button type="submit" class="button grey" id="next" onclick="next()">next</button>
