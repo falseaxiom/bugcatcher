@@ -32,7 +32,7 @@
     caret-color: white;
 
     font-family: inherit;
-    font-size: var(--body);
+    font-size: inherit;
     color: white;
     border: 1px solid var(--blue);
 }
@@ -43,6 +43,7 @@
     border-radius: 10px;
     background: black;
     border: 1px solid var(--grey);
+    overflow: scroll;
 }
 .junkHolder {
     width: 350px;
@@ -57,7 +58,7 @@
     margin: 10px;
     width: 90%;
     height: auto;
-
+    overflow: scroll;
 }
 .levelDesc p {
     margin-top: 10px;

@@ -37,10 +37,10 @@ window.onload = (e) => {
             title.innerHTML = "Level 2: Variable Scope";
             break;
         case 3:
-            title.innerHTML = "Level 2: Indexing Errors";
+            title.innerHTML = "Level 3: Indexing Errors";
             break;
         case 4:
-            title.innerHTML = "Level 2: Logic Errors";
+            title.innerHTML = "Level 4: Logic Errors";
             break;
         default:
             title.innerHTML = "Error: No Level Found";
@@ -55,10 +55,10 @@ window.onload = (e) => {
     }
 }
 
-/* SETUP: pre-fill "ide" and tutorial, list Hintz */
+/* SETUP: pre-fill "ide" and tutorial, display program description */
 $(document).ready(function() {
     $.ajax({
-        url : "txt/buggy/"+level+enviro+"buggy.txt",
+        url : "content/level"+level+"/buggy/"+level+enviro+"buggy.txt",
         dataType: "text",
         success : function (data) {
             $("#texty").text(data);
@@ -66,10 +66,10 @@ $(document).ready(function() {
     });
 
     if (enviro == 'a') {
-        $("#dialog").load("tutorial/"+level+"dialog.html #0")
+        $("#dialog").load("content/level"+level+"/"+level+"tutorial.html #0")
     }
 
-    $("#hint0").load("hintz/" + level + enviro + "hintz.html #0");
+    $("#hint0").load("content/level"+level+"/"+level+"hintz.html #"+enviro);
 });
 
 /* TUTORIAL: click thru dialog */
@@ -77,7 +77,7 @@ let dialog = document.getElementById("dialog");
 let d = 0;
 function nextDialog() {
     d++;
-    $("#dialog").load("tutorial/"+level+"dialog.html #"+d);
+    $("#dialog").load("content/level"+level+"/"+level+"tutorial.html #"+d);
 
     // display proper bug
     let bug = document.getElementById("bug");
@@ -113,14 +113,14 @@ numHintz = 0;
 function newHint() {
     if (numHintz < 3) {
         numHintz++;
-        $("#hint"+numHintz).load("hintz/" + level + enviro + "hintz.html #" + numHintz);
+        $("#hint"+numHintz).load("content/level"+level+"/"+level+"hintz.html #"+numHintz);
     }
 }
 
 /* RUN: get correct answer for checking later */
 let chk;
 $.ajax({
-    url: "txt/correct/"+level+enviro+"correct.txt",
+    url: "content/level"+level+"/correct/"+level+enviro+"correct.txt",
     success: function(data){
       chk = data.replace(/\s+/g, ' ').trim();
     }
@@ -146,7 +146,7 @@ function run() {
         next.classList.remove("grey");
         next.classList.add("green");
         $.ajax({
-            url : "txt/output/"+level+enviro+"output.txt",
+            url : "content/level"+level+"/output/"+level+enviro+"output.txt",
             dataType: "text",
             success : function (data) {
                 term.innerHTML = data;

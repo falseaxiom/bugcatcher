@@ -1,0 +1,25 @@
+public class Level1E {
+    public static int diameter(int r) {
+        return r * 2;
+    }
+
+    public static double area(int r) {
+        return r * r * Math.PI;
+    }
+
+    public static double circumference(int d) {
+        return d * Math.PI;
+    }
+
+    public static void main(String[] args) {
+        int r = 10;
+        int d = diameter(r);
+        double a = area(r);
+        double c = circumference(d);
+
+        System.out.println("radius: " + r);
+        System.out.println("diameter: " + d);
+        System.out.println("area: " + a);
+        System.out.println("circumference: " + c);
+    }
+}
