@@ -144,21 +144,29 @@ function run() {
     let term = document.getElementById("terminal")
 
     // if answer is correct, display correct output in terminal & un-grey next button
+    let valA = val.split('\n');
+    let chkA = chk.split('\n');
+    let err = '';
+    for (let i = 0; i < valA.length; i++) {
+        if (valA[i] !== chkA[i]) {
+            if (err === '') err += '<div>> error at line '+(i+1)+'</div>';
+            else            err += '<div>error at line '+(i+1)+'</div>';
+        }
+    }
     if (val === chk) {
         let next = document.getElementById("next");
         next.classList.remove("grey");
         next.classList.add("green");
         $.ajax({
-            url : "content/level"+level+"/output/"+level+enviro+"output.txt",
+            url : "content/survey/output/s"+part+"-"+question+"output.txt",
             dataType: "text",
             success : function (data) {
                 term.innerHTML = data;
             }
         });
-        
     }
     else {
-        term.innerHTML = "> Error: bugs present in code";
+        term.innerHTML = err;
     }
 }
 
