@@ -57,6 +57,7 @@ window.onload = (e) => {
 
 /* SETUP: pre-fill "ide" and tutorial, display program description */
 $(document).ready(function() {
+    // pre-fill ide
     $.ajax({
         url : "content/level"+level+"/buggy/"+level+enviro+"buggy.txt",
         dataType: "text",
@@ -65,10 +66,12 @@ $(document).ready(function() {
         }
     });
 
+    // tutorial
     if (enviro == 'a') {
         $("#dialog").load("content/level"+level+"/"+level+"tutorial.html #0")
     }
 
+    // program description
     $("#hint0").load("content/level"+level+"/"+level+"hintz.html #"+enviro);
 });
 

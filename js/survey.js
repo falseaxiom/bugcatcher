@@ -45,11 +45,11 @@ window.onload = (e) => {
     }
 }
 
-/* SETUP: pre-fill "ide", program description */
+/* SETUP: pre-fill "ide", display program description */
 $(document).ready(function() {
     // pre-fill ide
     $.ajax({
-        url : "txt/buggy/s"+part+"-"+question+"buggy.txt",
+        url : "content/survey/buggy/s"+part+"-"+question+"buggy.txt",
         dataType: "text",
         success : function (data) {
             $("#texty").text(data);
@@ -57,7 +57,7 @@ $(document).ready(function() {
     });
 
     // program description
-    $("#hint0").load("hintz/s" + part + "hintz.html #" + question);
+    $("#hint0").load("content/survey/s"+part+"hintz.html #"+question);
 });
 
 /* PART PICKER: pick part */
@@ -68,7 +68,7 @@ function gotoPart(n) {
 /* RUN: get correct answer for checking later */
 let chk;
 $.ajax({
-    url : "txt/correct/s"+part+"-"+question+"correct.txt",
+    url : "content/survey/correct/s"+part+"-"+question+"correct.txt",
     success: function(data){
       chk = data.replace(/\s+/g, ' ').trim();
     }
@@ -93,7 +93,7 @@ function run() {
         next.classList.remove("grey");
         next.classList.add("green");
         $.ajax({
-            url : "txt/output/s"+part+"-"+question+"output.txt",
+            url : "content/survey/output/s"+part+"-"+question+"output.txt",
             dataType: "text",
             success : function (data) {
                 term.innerHTML = data;
