@@ -1,4 +1,4 @@
-/* SETUP: grab survey part and question from url */
+/* SETUP: grab survey part, question, runs, time from url */
 const qstr = window.location.search;
 const params = new URLSearchParams(qstr);
 let part = parseInt(params.get("p"));
@@ -113,8 +113,8 @@ function next() {
     let next = document.getElementById("next");
     if (next.classList.contains("green")) {
         time += TimeMe.getTimeOnCurrentPageInSeconds();
-        if (question == 8) {
-            location.href="./score.html?p="+part+"&r="+runs+"&t="+time;
+        if (question == 5) {
+            location.href="./results.html?p="+part+"&r="+runs+"&t="+time;
         }
         else {
             question++;

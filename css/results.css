@@ -1,0 +1,44 @@
+.scoreBox {
+    width: calc(90vw - 80px);
+    height: calc(70vh - 80px);
+    padding: 40px;
+    border-radius: 10px;
+    background: var(--darkbg);
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.scoreBox b {
+    color: var(--yellow);
+}
+#googleform {
+    font-size: var(--biggs);
+    color: var(--yellow);
+    font-weight: 700;
+    margin: 40px 0px;
+}
+.button {
+    font-family: var(--robmono);
+    font-size: var(--title);
+    color: inherit;
+    border: none;
+    border-radius: 8px;
+    width: 47%;
+    padding: 15px;
+    align-self: center;
+}
+.orange {
+    background: var(--orange);
+}
+.orange:hover {
+    background: var(--yellow);
+    cursor: pointer;
+}
+#rawdata {
+    width: 80%;
+    font-family: inherit;
+    font-size: var(--subtitle);
+    text-align: center;
+    
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BUGCATCHER!</title>
+        <link rel="stylesheet" href="css/styles.css"/>
+        <link rel="stylesheet" href="css/results.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    </head>
+    <body>
+        <div id="header"></div>
+        <div class="flexCol container">
+            <div class="flexCol scoreBox">
+                <div class="title">Congratulations! You just completed <b>Part <span id="part"></span></b> of this survey.</div>
+                <div class="title">Please complete the following Google Form:</div>
+                <a id="googleform" target="_blank"></a>
+                <div class="title">When you get to the last question of the form, copy-paste the following raw data as the answer:</div>
+                <input type="text" id="rawdata">
+                <br/>
+                <div class="title">🐞 You're done for today! Thank you for your participation. 🐞</div>
+
+            </div>
+        </div>
+        <div id="footer"></div>
+    </body>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script> 
+        $(function(){
+            $("#header").load("common/header.html"); 
+            $("#footer").load("common/footer.html"); 
+        });
+    </script> 
+    <script src="js/results.js"></script>
+</html>
