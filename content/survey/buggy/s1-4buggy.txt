@@ -29,6 +29,6 @@ public class SurveyP1Q4 {
 
         System.out.println("Highest number: " + getHi(a));
         System.out.println("Lowest number: " + getHi(a));
-        System.out.println("Average: " + getHi(a));
+        System.out.println("Average: " + calcAvg(a));
     }
 }

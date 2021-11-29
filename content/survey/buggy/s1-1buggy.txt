@@ -1,11 +1,11 @@
 public class SurveyP1Q1 {
-    private static final char[] VOWELS = [ 'a', 'e', 'i', 'o', 'u' ];
+    private static final char[] VOWELS = { 'a', 'e', 'i', 'o', 'u' };
 
     public static int countVowels(String s) {
         int numVowels;
         for (int i = 0; i < s.length(); i++) {
             for (int j = 0; j < VOWELS.length; j++) {
-                if (s.charAt[i] = VOWELS[j]) {
+                if (s.charAt(i) = VOWELS[j]) {
                     numVowels++;
                     break;
                 }

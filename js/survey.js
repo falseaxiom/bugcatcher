@@ -74,7 +74,7 @@ let chk;
 $.ajax({
     url : "content/survey/correct/s"+part+"-"+question+"correct.txt",
     success: function(data){
-      chk = data.replace(/\s+/g, ' ').trim();
+      chk = data.replace(/ +?/g, ' ').trim();
     }
 });
 
@@ -85,12 +85,21 @@ function run() {
 
     // get text in ide
     let text = document.getElementById("texty");
-    let val = text.value.replace(/\s+/g, ' ').trim();
+    let val = text.value.replace(/ +?/g, ' ').trim();
 
     // get "terminal"
     let term = document.getElementById("terminal")
 
     // if answer is correct, display correct output in terminal & un-grey next button
+    let valA = val.split('\n');
+    let chkA = chk.split('\n');
+    let err = '';
+    for (let i = 0; i < valA.length; i++) {
+        if (valA[i] !== chkA[i]) {
+            if (err === '') err += '<div>> error at line '+(i+1)+'</div>';
+            else            err += '<div>error at line '+(i+1)+'</div>';
+        }
+    }
     if (val === chk) {
         let next = document.getElementById("next");
         next.classList.remove("grey");
@@ -104,7 +113,7 @@ function run() {
         });
     }
     else {
-        term.innerHTML = "> Error: bugs present in code";
+        term.innerHTML = err;
     }
 }
 
