@@ -100,7 +100,8 @@ function run() {
             else            err += '<div>error at line '+(i+1)+'</div>';
         }
     }
-    if (val === chk) {
+    if (err === '') {
+        console.log("pass");
         let next = document.getElementById("next");
         next.classList.remove("grey");
         next.classList.add("green");
@@ -113,6 +114,7 @@ function run() {
         });
     }
     else {
+        console.log("nopass");
         term.innerHTML = err;
     }
 }

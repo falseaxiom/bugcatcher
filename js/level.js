@@ -125,7 +125,7 @@ let chk;
 $.ajax({
     url: "content/level"+level+"/correct/"+level+enviro+"correct.txt",
     success: function(data){
-      chk = data.replace(/\s+/g, ' ').trim();
+      chk = data.replace(/ +?/g, ' ').trim();
     }
 });
 
@@ -138,7 +138,7 @@ function run() {
 
     // get text in ide
     let text = document.getElementById("texty");
-    let val = text.value.replace(/\s+/g, ' ').trim();
+    let val = text.value.replace(/ +?/g, ' ').trim();
 
     // get "terminal"
     let term = document.getElementById("terminal")
@@ -153,12 +153,13 @@ function run() {
             else            err += '<div>error at line '+(i+1)+'</div>';
         }
     }
-    if (val === chk) {
+    if (err === '') {
+        console.log("pass");
         let next = document.getElementById("next");
         next.classList.remove("grey");
         next.classList.add("green");
         $.ajax({
-            url : "content/survey/output/s"+part+"-"+question+"output.txt",
+            url : "content/level"+level+"/output/"+level+enviro+"output.txt",
             dataType: "text",
             success : function (data) {
                 term.innerHTML = data;
@@ -166,6 +167,7 @@ function run() {
         });
     }
     else {
+        console.log("nopass");
         term.innerHTML = err;
     }
 }
