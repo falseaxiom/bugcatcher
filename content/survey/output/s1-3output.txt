@@ -1,0 +1,3 @@
+<div>> Even #s between 1 and 7: 3</div>
+<div>Even #s between 5 and 24: 10</div>
+<div>Even #s between 12 and 826: 408</div>

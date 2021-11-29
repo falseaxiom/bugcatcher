@@ -1,0 +1,31 @@
+public class SurveyP2Q5 {
+    public static class Point {
+        private int x, y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    public static double dist(Point a, Point b) {
+        double xDist = b.x - a.x;
+        double yDist = b.y - a.y;
+        sqDist = (xDist * xDist) + (yDist * yDist);
+        return Math.sqrt(sqDist);
+    }
+
+    public static double slope(Point a, Point b) {
+        double rise = b.y - a.y;
+        double run = a.x - a.x;
+        return rise / sun;
+    }
+
+    public static void main(String[] args) {
+        Point a = new Point(0, 0)
+        Point b = new Point(4, 3)
+        
+        System.out.println("Distance from a to b: " + dist(a, b));
+        System.out.println("Slope of line ab: " + slope(a, b));
+    }
+}

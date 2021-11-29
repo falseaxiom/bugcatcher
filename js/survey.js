@@ -3,10 +3,14 @@ const qstr = window.location.search;
 const params = new URLSearchParams(qstr);
 let part = parseInt(params.get("p"));
 let question = parseInt(params.get("q"));
+let runs = parseInt(params.get("r"));
+let time = parseFloat(params.get("t"));
 console.log("part", part)
 console.log("question", question);
+console.log("runs", runs);
+console.log("time", time);
 
-/* SETUP: grab s1, s2 from localStorage */
+/* SETUP: grab s1, s2, from localStorage */
 let s1 = parseInt(localStorage.getItem("s1"));
 let s2 = parseInt(localStorage.getItem("s2"));
 console.log("s1", s1);
@@ -15,7 +19,7 @@ console.log("s2", s2);
 /* SETUP: time how long player is on this question */
 TimeMe.initialize({
     currentPageName: "my-page", // current page
-    idleTimeoutInSeconds: 1000 // seconds
+    idleTimeoutInSeconds: 5000 // seconds
 });
 
 /* SETUP: change title, display part picker (if needed), grey out buttons as necessary */
@@ -62,7 +66,7 @@ $(document).ready(function() {
 
 /* PART PICKER: pick part */
 function gotoPart(n) {
-    if (document.getElementById("p"+n).classList.contains("orange")) location.href = "./survey.html?p="+n+"&q=1";
+    if (document.getElementById("p"+n).classList.contains("orange")) location.href = "./survey.html?p="+n+"&q=1&r=0&t=0";
 }
 
 /* RUN: get correct answer for checking later */
@@ -75,10 +79,9 @@ $.ajax({
 });
 
 /* RUN: run program */
-numRuns = 0;
 function run() {
-    // update numRuns
-    numRuns++;
+    // update runs
+    runs++;
 
     // get text in ide
     let text = document.getElementById("texty");
@@ -105,23 +108,17 @@ function run() {
     }
 }
 
-/* RUN: update data */
-function update() {
-    let timeSpent = TimeMe.getTimeOnCurrentPageInSeconds();
-    s += timeSpent + (10 * numRuns);
-}
-
 /* NEXT: move to next question */
 function next() {
     let next = document.getElementById("next");
     if (next.classList.contains("green")) {
+        time += TimeMe.getTimeOnCurrentPageInSeconds();
         if (question == 8) {
-            let score = 1000 - Math.max(0, parseInt(s))
-            location.href="./score.html?p="+part+"&s="+score;
+            location.href="./score.html?p="+part+"&r="+runs+"&t="+time;
         }
         else {
             question++;
-            location.href = "./survey.html?p="+part+"&q="+question;
+            location.href = "./survey.html?p="+part+"&q="+question+"&r="+runs+"&t="+time;
         }
     }
 }

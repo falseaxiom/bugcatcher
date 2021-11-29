@@ -1,0 +1,20 @@
+public class SurveyP2Q3 {
+    public static int evenBetween(int a, int b) {
+        int start = a;
+        int end = b;
+        if (start % 2 != 0) start++;
+        if (end % 2 != 0) end--;
+
+        int numEven = 0;
+        for (int i = start; i <= end; i++) {
+            numEven++;
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Even #s between 1 and 7: " + evenBetween(1, 7);
+        System.out.println("Even #s between 5 and 24: " + evenBetwean(5, 24);
+        System.out.println("Even #s between 12 and 826: " + evenBetween(12, 826);
+    }
+}

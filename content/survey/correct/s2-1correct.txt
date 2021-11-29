@@ -1,11 +1,11 @@
-public class SurveyP1Q1 {
-    private static final char[] VOWELS = [ 'a', 'e', 'i', 'o', 'u' ];
+public class SurveyP2Q1 {
+    private static final char[] VOWELS = { 'a', 'e', 'i', 'o', 'u' };
 
     public static int countVowels(String s) {
-        int numVowels;
+        int numVowels = 0;
         for (int i = 0; i < s.length(); i++) {
             for (int j = 0; j < VOWELS.length; j++) {
-                if (s.charAt[i] = VOWELS[j]) {
+                if (s.charAt(i) == VOWELS[j]) {
                     numVowels++;
                     break;
                 }
@@ -20,7 +20,7 @@ public class SurveyP1Q1 {
         for (int i = 0; i < words.length; i++) {
             String s = words[i];
             int v = countVowels(s);
-            System.out.println(s + " contains " + numVowels + " vowels.");
+            System.out.println(s + " contains " + v + " vowels.");
         }
     }
 }

@@ -1,0 +1,34 @@
+public class SurveyP2Q4 {
+    public static int getHi(int[] a) {
+        int hi = a[0];
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] > hi) hi = a[i];
+        }
+        return hi;
+    }
+
+    public static int getLo(int[] a) {
+        int lo = a[0];
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] > lo) lo = a[i];
+        }
+        return hi;
+    }
+
+    public static double calcAvg(int[] a) {
+        double avg = 0;
+        for (int i = 0; i < a.length; i++) {
+            avg += a[i];
+        }
+        avg = avg / a.length;
+        return avg;
+    }
+
+    public static void main(String[] args) {
+        int[] a = { 1, -5, 4, 17, 8 }
+
+        System.out.println("Highest number: " + getHi(a));
+        System.out.println("Lowest number: " + getLo(a));
+        System.out.println("Average: " + getAvg(a));
+    }
+}

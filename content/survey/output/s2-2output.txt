@@ -1,0 +1,4 @@
+<div>> 1 in binary is 1.</div>
+<div>2 in binary is 10.</div>
+<div>17 in binary is 10001.</div>
+<div>83 in binary is 1010011.</div>
