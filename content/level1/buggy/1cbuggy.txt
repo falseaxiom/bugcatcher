@@ -6,7 +6,7 @@ public class Level1C {
 
         for (int i = 1; i < a.length; i++) {
             sum += a[i];
-            prud *= a[i];
+            Prod *= a[i];
         }
 
         System.out.println("sum of a[]: " + sun);

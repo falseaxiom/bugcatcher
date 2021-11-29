@@ -116,7 +116,7 @@ numHintz = 0;
 function newHint() {
     if (numHintz < 3) {
         numHintz++;
-        $("#hint"+numHintz).load("content/level"+level+"/"+level+"hintz.html #"+numHintz);
+        $("#hint"+numHintz).load("content/level"+level+"/"+level+"hintz.html #"+enviro+numHintz);
     }
 }
 
@@ -125,7 +125,7 @@ let chk;
 $.ajax({
     url: "content/level"+level+"/correct/"+level+enviro+"correct.txt",
     success: function(data){
-      chk = data.replace(/ +?/g, ' ').trim();
+      chk = data.replace(/[^\S\r\n]+/g, ' ').trim();
     }
 });
 
@@ -138,7 +138,7 @@ function run() {
 
     // get text in ide
     let text = document.getElementById("texty");
-    let val = text.value.replace(/ +?/g, ' ').trim();
+    let val = text.value.replace(/[^\S\r\n]+/g, ' ').trim();
 
     // get "terminal"
     let term = document.getElementById("terminal")
@@ -146,11 +146,15 @@ function run() {
     // if answer is correct, display correct output in terminal & un-grey next button
     let valA = val.split('\n');
     let chkA = chk.split('\n');
+    valA = valA.map(s => s.trim());
+    chkA = chkA.map(s => s.trim());
     let err = '';
     for (let i = 0; i < valA.length; i++) {
         if (valA[i] !== chkA[i]) {
-            if (err === '') err += '<div>> error at line '+(i+1)+'</div>';
-            else            err += '<div>error at line '+(i+1)+'</div>';
+            err += '<div>> error: stopped at line '+(i+1)+'</div>';
+            console.log(valA[i])
+            console.log(chkA[i])
+            break;
         }
     }
     if (err === '') {

@@ -1,6 +1,6 @@
 public class Level1B {
     public static void main(String[] args) {
-        int[] a = { 1, 2, 3, 4, 5 };
+        int[] a = { 1, 2, 3, 4, 5 }
         int sum = a[0];
         int prod = a[0];
 

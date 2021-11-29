@@ -1,7 +1,7 @@
 public class Level1D 
     public static boolean containsT(Sting s) {
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(t) == 't'); return true;
+            if (s.charAt(i) == 't'); return true;
         }
         return false;
     }
