@@ -1,2 +1,2 @@
-<div>> Sum of range [1,5): 10</div>
-<div>Product of range [1,5): 24</div>
+<div>> sum of a[]: 15</div>
+<div>product of a[]: 120</div>

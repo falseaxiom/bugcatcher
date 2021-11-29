@@ -1,15 +1,15 @@
 public class Level1C {
     public static void main(String[] args) {
-        int n = 5;
-        int sum = 0;
-        int prod = 0;
+        int[] a = { 1, 2, 3, 4, 5 };
+        int sum = a[0];
+        int prod = a[0];
 
-        for (int i = 1; i < n; i++) {
-            sum += i;
-            prud *= i;
+        for (int i = 1; i < a.length; i++) {
+            sum += a[i];
+            prud *= a[i];
         }
 
-        System.out.println("sum of range [1,5): " + som);
-        System.out.println("product of range [1,5): " + prod);
+        System.out.println("sum of a[]: " + sun);
+        System.out.println("product of a[]: " + prod);
     }
 }

@@ -78,6 +78,25 @@ let d = 0;
 function nextDialog() {
     d++;
     $("#dialog").load("tutorial/"+level+"dialog.html #"+d);
+
+    // display proper bug
+    let bug = document.getElementById("bug");
+    if (level == 1) {
+        if (d == 2) {
+            bug.src = "imgs/brackets.gif";
+        }
+        else if (d == 5) {
+            bug.src = "imgs/semicolon.png";
+        }
+        else if (d == 7) {
+            bug.src = "imgs/typo.png";
+        }
+        else if (d == 9) {
+            bug.src = "imgs/logo.png";
+        }
+    }
+
+    // exit dialog
     if (dialog.innerHTML == "") {
         document.getElementById("tut").classList.add("hidden");
         document.getElementById("texty").focus();
