@@ -19,7 +19,7 @@ console.log("s2", s2);
 /* SETUP: time how long player is on this question */
 TimeMe.initialize({
     currentPageName: "my-page", // current page
-    idleTimeoutInSeconds: 5000 // seconds
+    idleTimeoutInSeconds: 600 // seconds
 });
 
 /* SETUP: change title, display part picker (if needed), grey out buttons as necessary */

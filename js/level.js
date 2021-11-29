@@ -20,7 +20,7 @@ if (isNaN(hiscore)) {
 /* SETUP: time how long player is on this level */
 TimeMe.initialize({
     currentPageName: "my-page", // current page
-    idleTimeoutInSeconds: 1000 // seconds
+    idleTimeoutInSeconds: 600 // seconds
 });
 
 /* SETUP: change title, display tutorial if necessary */
