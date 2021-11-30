@@ -46,8 +46,10 @@ window.onload = (e) => {
             title.innerHTML = "Error: No Level Found";
     }
 
-    // autoselect textarea
-    document.getElementById("texty").focus();
+    // autoselect textarea, let it scroll
+    let texty = document.getElementById("texty");
+    texty.focus();
+    texty.wrap='off';
 
     // display tutorial if on first problem of level
     if (enviro == 'a' && level == lvl) {
@@ -187,7 +189,7 @@ function next() {
     calcScore();
     let next = document.getElementById("next");
     if (next.classList.contains("green")) {
-        if (enviro == 'e' || level == "0") {
+        if (enviro == 'd' || level == "0") {
             let score = 1000 - Math.min(900, parseInt(s)); // min score of 100
             location.href="./score.html?level="+level+"&score="+score;
         }

@@ -1,0 +1,27 @@
+public class Level2D {
+    public static char firstLetter(String s) {
+        char first = s.charAt(0);
+        return first;
+    }
+
+    public static char lastLetter(String s) {
+        char last = s.charAt(s.length() - 1);
+        return last;
+    }
+
+    public static int numAs(String s) {
+        int a = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'a') a++;
+        }
+        return a;
+    }
+
+    public static void main(String[] args) {
+        String word = "wambsgans";
+
+        System.out.println("First letter of " + word + ": " + firstLetter(word));
+        System.out.println("Last letter of " + word + ": " + lastLetter(word));
+        System.out.println("Number of A's in " + word + ": " + numAs(word));
+    }
+}

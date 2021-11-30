@@ -32,8 +32,10 @@ window.onload = (e) => {
         document.getElementById("pp").classList.remove("hidden");
     }
 
-    // autoselect textarea
-    document.getElementById("texty").focus();
+    // autoselect textarea, let it scroll
+    let texty = document.getElementById("texty");
+    texty.focus();
+    texty.wrap='off';
 
     // grey out buttons
     let p1Button = document.getElementById("p1");

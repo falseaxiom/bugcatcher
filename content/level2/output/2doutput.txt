@@ -1,0 +1,3 @@
+<div>> First letter of wambsgans: w</div>
+<div>Last letter of wambsgans: s</div>
+<div>Number of A's in wambsgans: 2</div>
