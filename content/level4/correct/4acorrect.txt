@@ -1,0 +1,23 @@
+public class Level4A {
+    public static double height(double s) {
+        return Math.sqrt(Math.pow(s, 2) - Math.pow(s / 2, 2));
+    }
+
+    public static double area(double b, double h) {
+        return b * h * 0.5;
+    }
+
+    public static double perim(double s) {
+        return s * 3;
+    }
+
+    public static void main(String[] args) {
+        double s = 5.0;
+        double h = height(s);
+
+        System.out.println("For an equilateral triangle of side length " + s + ":");
+        System.out.println("Height = " + h);
+        System.out.println("Area = " + area(s, h));
+        System.out.println("Perimeter = " + perim(s));
+    }
+}

@@ -1,0 +1,4 @@
+<div>> For an equilateral triangle of side length 5.0:</div>
+<div>Height = 4.330127018922194</div>
+<div>Area = 10.825317547305485</div>
+<div>Perimeter = 15.0</div>

@@ -1,0 +1,3 @@
+<div>> Last letter in lollygagging: g</div>
+<div>Number of g's: 4</div>
+<div>Every second letter removed: llyagn</div>

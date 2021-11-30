@@ -1,0 +1,22 @@
+public class Level4D {
+    public static void santasList(String[] kids, int[] nice, Queue<String> list) {
+        for (int i = 0; i < kids.length; i++) {
+            if (nice[i] == 1) {
+                list.enqueue(kids[i]);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String[] kids = { "Annie", "Betty", "Carol", "Delilah", "Elle" };
+        int[] nice = { 1, 0, 1, 1, 0 };
+
+        Queue<String> list = new Queue<>();
+        santasList(kids, nice, list);
+
+        System.out.println("Santa will give presents to the following nice kids:");
+        while (!list.isEmpty()) {
+            System.out.println("- " + list.dequeue());
+        }
+    }
+}

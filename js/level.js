@@ -127,7 +127,7 @@ let chk;
 $.ajax({
     url: "content/level"+level+"/correct/"+level+enviro+"correct.txt",
     success: function(data){
-      chk = data.replace(/[^\S\r\n]+/g, ' ').trim();
+      chk = data.replace(/[^\S\r\n]+/g, '').trim();
     }
 });
 
@@ -140,7 +140,7 @@ function run() {
 
     // get text in ide
     let text = document.getElementById("texty");
-    let val = text.value.replace(/[^\S\r\n]+/g, ' ').trim();
+    let val = text.value.replace(/[^\S\r\n]+/g, '').trim();
 
     // get "terminal"
     let term = document.getElementById("terminal")
