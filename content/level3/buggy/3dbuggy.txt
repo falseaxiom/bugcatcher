@@ -1,0 +1,30 @@
+public class Level3D {
+    public static final char[] VOWELS = { 'a', 'e', 'i', 'o', 'u' };
+
+    public static String noVows(String s) {
+        StringBuilder sb = new StringBuilder();
+        boolean isVowel;
+
+        for (int i = 0; i < sb.length(); i++) {
+            isVowel = false;
+            for (int j = 0; j <= VOWELS.length; j++) {
+                if (s.charAt(i) == VOWELS[j]) {
+                    isVowel = true;
+                    break;
+                }
+            }
+            if (!isVowel) sb.append(s.charAt(i));
+        }
+
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        String[] words = { "cucumber", "anteaters", "oowooowooowoo" };
+
+        for (int i = 0; i < words[i].length(); i++) {
+            String word = words[i];
+            System.out.println(word + " with no vowels: " + noVows(word));
+        }
+    }
+}

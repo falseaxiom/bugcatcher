@@ -1,0 +1,30 @@
+public class Level3C {
+    public static char getLast(String s) {
+        return s.charAt(s.length() - 1);
+    }
+
+    public static int numRepeats(String s, char c) {
+        int repeats = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == c) repeats++;
+        }
+        return repeats;
+    }
+
+    public static String everyOther(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i += 2) {
+            sb.append(s.charAt(i));
+        }
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        String s = "lollygagging";
+        char c = getLast(s);
+
+        System.out.println("Last letter in " + s + ": " + c);
+        System.out.println("Number of " + c + "'s: " + numRepeats(s, c));
+        System.out.println("Every second letter removed: " + everyOther(s));
+    }
+}
