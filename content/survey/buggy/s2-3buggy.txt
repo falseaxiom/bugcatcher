@@ -6,7 +6,7 @@ public class SurveyP2Q3 {
         if (end % 2 != 0) end--;
 
         int numEven = 0;
-        for (int i = start; i <= end; i++) {
+        for (int i = start; i <= end; i += 2) {
             numEven++;
         }
         return 0;

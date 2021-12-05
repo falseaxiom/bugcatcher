@@ -25,6 +25,20 @@ console.log("l1p", l1p);
 console.log("l2p", l2p);
 console.log("l3p", l3p);
 console.log("l4p", l4p);
+let lp = l0p + "," + l1p + "," + l2p + "," + l3p + "," + l4p;
+
+/* SETUP: grab level hi scores from localStorage */
+let l0hs = parseInt(localStorage.getItem("l0hs"));
+let l1hs = parseInt(localStorage.getItem("l1hs"));
+let l2hs = parseInt(localStorage.getItem("l2hs"));
+let l3hs = parseInt(localStorage.getItem("l3hs"));
+let l4hs = parseInt(localStorage.getItem("l4hs"));
+console.log("l0hs", l0hs);
+console.log("l1hs", l1hs);
+console.log("l2hs", l2hs);
+console.log("l3hs", l3hs);
+console.log("l4hs", l4hs);
+let lhs = l0hs + "," + l1hs + "," + l2hs + "," + l3hs + "," + l4hs;
 
 /* display part # */
 document.getElementById("part").innerHTML = part;
@@ -47,4 +61,4 @@ localStorage.setItem("s"+part, "1");
 let raw = document.getElementById("rawdata");
 raw.disabled = true;
 if (part == 1) raw.value = qstr;
-else if (part == 2) raw.value = qstr + "," + l0p + "," + l1p + "," + l2p + "," + l3p + "," + l4p;
+else if (part == 2) raw.value = qstr + ",lp=" + lp + ",lhs=" + lhs;
