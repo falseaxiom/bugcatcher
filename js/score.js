@@ -44,5 +44,5 @@ else {
 
 /* move to next level */
 function nextLevel() {
-    location.href="./level.html?level="+lvl+"&enviro=a&s=0";
+    location.href="./level.html?level="+lvl+"&e=a&s=0";
 }
